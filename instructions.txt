@@ -1,0 +1,53 @@
+CPS209 – Assignment 1 	Due March 10, 2014 @ 11:59pm
+
+Requirements
+- All creatures are animated using a timer
+- Creatures implement the interface MoveableShape that can be used as a generic mechanism for animating a shape. A moveable shape must have methods void move() and void draw(Graphics2D g) and boolean collide(MoveableShape other)
+	Predator Color = Yellow
+	Slow Prey = Red
+	Fast Prey = Green
+- Write a generic GamePanel that draws and moves (i.e. animates) an array list of MoveableShape objects. The objects should be initially randomly positioned in the panel. Design a basic superclass Creature that stores the (x,y) position of a creature, the width and height of the creature's bounding rectangle, and any other variables and methods you deem necessary. The Creature class must implement the MoveableShape interface. You may choose to leave these methods empty or supply default behavior in the Creature superclass. 
+- The predator creature is a special creature that devours other prey creatures. That is, when the predator collides with a prey, it "eats" the prey by removing it from the array list. The predator is always moving - either up, down, left, or right - and only it's direction is under user control. The left mouse button turns the predator 90 degrees counterclockwise (i.e. if it was moving up, then a left mouse button click will change its direction to left). The right mouse button turns it 90 degrees clockwise. Hints: 1) the collide() method can use the predator's "contains()" method, 2) the MouseEvent class has a getButton() method - see the Java API. 
+- The game is over when the predator has devoured all the prey. The game should start (and creatures begin moving) when the user presses a button or when the user clicks a mouse button for the first time - its your choice. Measure and print the elapsed time for a user to finish the game on the console window. 
+- Your creatures (predator and prey) can have any shape you like. However, for maximum marks, both the predator creature and the prey creatures should extend superclass Creature. This means they need to override the inherited MoveableShape methods: draw(), move(), collide() . 
+
+
+Marking Scheme
+For a maximum of 6 marks do just the above except have only a single prey creature that does not move at all. Only the predator moves. All creatures have a simple shape (e.g. circle or rectangle).
+For a maximum of 7 marks, creatures are more complex in shape (e.g. multiple parts/components or the use of the arc2D class etc.).
+For a maximum of 8 marks, have one prey type creature that moves slowly in some simple pattern (e.g. horizontally back and forth).
+For a maximum of 9 marks, have two prey type creatures and both move in some simple pattern - one slow prey and one fast prey.
+For a maximum of 9.5 marks display the elapsed time (in minutes and seconds) somewhere on the panel as the game progresses.
+For a maximum of 10 marks have the quick creature move away from (i.e. evade) the predator when the predator gets close (Hint: have each quick creature check the distance to the predator using the the quick creature's collide() method). Of course, the predator should eventually be able to eat the prey.
+Note that 10% of your mark is for program structure, style and documentation. You must use inheritance. Also, if inheritance and the MoveableShape interface are used properly, then the prey creatures can all be stored in a single arraylist of MoveableShape type objects. You must use javadoc style documentation, have proper indentation, meaningful variable names, class names starting with uppercase, variable names starting with lower case, constants all capitals.
+
+Classes
+
+MoveableShape Class
+	void move()
+	void draw(Graphic2D g)
+	boolean collide(MoveableShape other)
+
+GamePanel Class
+	Main Method
+
+Creature Class
+	Stores X and Y position of the creature
+	Width and Height of the creature
+	Must implement MoveableShape interface
+
+Predator Class
+	SubClass of Creature
+	Over Ride the
+		Draw
+		Move
+		Collide
+	Create Pacman
+
+Prey Class
+	SubClass of Creature
+	Over Ride the
+		Draw
+		Move
+		Collide
+	Create the prey
